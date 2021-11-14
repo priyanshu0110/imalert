@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'whylatency/css/index.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="icon" href="{% static 'whylatency/images/ic_imalert.png' %}" type="image/icon type">
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 20px 25px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 1200px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+  <!--for nav bar start-->
+
+body {margin:0;}
+
+.icon-bar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.icon-bar a {
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 36px;
+  text-decoration: none;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+<!--for nav bar end-->
+
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px #ddd;
+  padding: 12px;
+  padding-right: 30px;
+  text-align:center;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #616161;
+  color: white;
+}
+
+
+<!--for popup start-->
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+.form-popup {
+
+    display: none;
+    position: absolute;
+    border: 1px solid #f1f1f1;
+    top: 8%;
+    left: 30%;
+    background: #fff;
+    z-index: 9;
+    overflow:auto;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 400px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=number], .form-container input[type=password] {
+  padding: 5px;
+  margin: 5px 0 12px 0;
+  border: none;
+  background: #f1f1f1;
+  width: 40%;
+}
+
+.form-container input[type=checkbox] {
+  float: right;
+  margin-right: 5%;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=number], .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+<!--for popup end-->
+
+</style>
+</head>
+<body>
+
+<div class="icon-bar">
+  <a href = "#" onclick="javascript:window.history.back(-1);return false;"><img style="margin-right:10px" width="50" height="50" src="{% static 'whylatency/images/logo_imalert.png' %}">imAlert</a>
+  <a style="float:right" href="#"><i class="fa fa-gear"></i></a>
+</div>
+<br>
+<button class="w3-button w3-xlarge w3-circle w3-teal w3-animate-top w3-light-grey "
+        style="margin: auto; display: block" onclick="openAddNewForm()">+</button>
+<br>
+<div class="row">
+ {% for whylatency_instance, config in whylatency_info.items %}
+<div class="column">
+<table id="customers">
+  <tr>
+    <td style="padding-top:4px;padding-bottom:4px; text-align:center">{{whylatency_instance}}</td>
+    <td style="padding-top:4px;padding-bottom:4px; text-align:center">
+      <i class="fa fa-pencil-square-o" aria-hidden="true"
+         onclick="openForm('{{whylatency_instance}}', '{{config.host}}', '{{config.port}}', '{{config.max_latency}}', '{{config.cron}}')"></i>
+    </td>
+    <td style="padding-top:4px;padding-bottom:4px; text-align:center"><i class="fa fa-trash" aria-hidden="true"
+    onclick="deleteConfirmation('{{whylatency_instance}}')"></i></td>
+  </tr>
+  <tr>
+    <th>host</th>
+    <th>port</th>
+    <th>max latency</th>
+  </tr>
+  <tr style="height:100px">
+    <td>{{config.host}}</td>
+    <td>{{config.port}}</td>
+    <td>{{config.max_latency}}</td>
+  </tr>
+
+</table>
+</div>
+{% endfor %}
+
+  </div>
+
+
+<div class="form-popup w3-animate-zoom" id="myForm">
+  <form method="POST" action="update" class="form-container">{% csrf_token %}
+    <h3 id="whylatency_name" style="text-align:center">Why Latency</h3>
+    <input id="whylatency_name_input" type="hidden" name="whylatency_name_input">
+    <label><b>Host : </b></label>
+    <input style="width: 80%; text-align: center; width:200px;" id = "host" type="text" placeholder="Host" name="host" required>
+    <br>
+    <label><b>Port : </b></label>
+    <input style="width: 80%; text-align: center; width:200px;" id = "port" type="number" placeholder="Port" name="port" required>
+    <br>
+    <label><b>max_latency : </b></label>
+    <input style="width: 80%; text-align: center; width:200px;" id = "max_latency" type="number" placeholder="Max Latency" name="max_latency" required>
+    <br>
+    <label><b>Cron : </b></label>
+    <input style="width: 80%; text-align: center;" id = "cron" type="text" placeholder="Cron" name="cron" required>
+  <br>
+    <button type="submit" class="btn">Save</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<div class="form-popup w3-animate-zoom" id="add_db" style="top: 1%">
+  <form method="POST" action="add" class="form-container">{% csrf_token %}
+    <h3 style="text-align:center">Why Latency</h3>
+
+    <label><b>Name:</b></label>
+    <input style="width: 80%; text-align: center;" id = "ad_name" type="text" placeholder="Name" name="name" required>
+    <br>
+
+    <label><b>Host: &nbsp;</b></label>
+    <input style="width: 80%; text-align: center;" id = "ad_host" type="text" placeholder="Host" name="host" required>
+    <br>
+
+    <label><b>Port: &nbsp;</b></label>
+    <input style="width: 80%; text-align: center;" id = "ad_port" type="number" placeholder="Port" name="port" required>
+    <br>
+
+    <label><b>max_latency: &nbsp;</b></label>
+    <input style="width: 80%; text-align: center;" id = "ad_max_latency" type="number" placeholder="Max Latency" name="max_latency" required>
+    <br>
+
+    <hr>
+
+    <label><b>Cron : </b></label>
+    <input style="width: 80%; text-align: center;" id = "ad_cron" type="text" value="*/5 * * * *" placeholder="Cron" name="cron" required>
+  <br>
+    <button type="submit" class="btn">Save</button>
+    <button type="button" class="btn cancel" onclick="closeAddNewForm()">Close</button>
+  </form>
+</div>
+
+<div class="form-popup w3-animate-zoom" id="delete_form">
+  <form method="POST" action="delete" class="form-container">{% csrf_token %}
+    <h4 id="delete_message" style="text-align:center">message</h4>
+    <input id="delete_whylatency_name_input" type="hidden" name="whylatency_name_input">
+    <button type="submit" class="btn">Yes</button>
+    <button type="button" class="btn cancel" onclick="closeDeleteForm()">Cancel</button>
+  </form>
+</div>
+
+<script>
+
+function openForm(whylatency_instance, host, port, max_latency, cron) {
+  document.getElementById("myForm").style.display = "block";
+  document.getElementById("whylatency_name").innerHTML = whylatency_instance;
+  document.getElementById("whylatency_name_input").value = whylatency_instance;
+  document.getElementById("host").value=host;
+  document.getElementById("port").value=port;
+  document.getElementById("max_latency").value=max_latency;
+
+  document.getElementById("cron").value=cron;
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+function openAddNewForm() {
+  document.getElementById("add_db").style.display = "block";
+}
+
+function closeAddNewForm() {
+  document.getElementById("add_db").style.display = "none";
+}
+
+function deleteConfirmation(whylatency_instance) {
+document.getElementById("delete_message").innerHTML="Do you want to delete this Reachability Checker <b>"+whylatency_instance+"</b> ?";
+document.getElementById("delete_whylatency_name_input").value = whylatency_instance;
+document.getElementById("delete_form").style.display = "block";
+}
+
+function closeDeleteForm() {
+  document.getElementById("delete_form").style.display = "none";
+}
+
+</script>
+</body>
+</html>

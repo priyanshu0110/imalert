@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Appenders>
+    
+    <File name="File" fileName="imcontroller.log">
+        <PatternLayout pattern="%d %-5p [%c{1}]: %m%n"/>
+    </File>
+
+    <Async name = "AsyncFile">
+        <AppenderRef ref="File"/>
+    </Async>
+    
+  </Appenders>
+  
+  <Loggers>
+    <Root level="INFO" additivity="false">
+      <AppenderRef ref="AsyncFile"/>
+    </Root>
+  </Loggers>
+  
+</Configuration>
