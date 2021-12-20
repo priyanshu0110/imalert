@@ -32,9 +32,9 @@ As of now, the following 6 monitoring modules have been added:
 As of now, the only supported medium of alerting is `Slack`. You need to have a Slack channel and an incoming webhook url for that.
 
 ### How to Install
-Please follow through the steps described on [https://www.yesfoss.com/imalert-installation/](https://www.yesfoss.com/imalert-installation/)
+Please follow through the steps described on [https://www.yesfoss.org/imalert-installation/](https://www.yesfoss.org/imalert-installation/)
 
-### To know more about this project, please visit [https://www.yesfoss.com/](https://www.yesfoss.com/)
+### To know more about this project, please visit [https://www.yesfoss.org/](https://www.yesfoss.org/)
 
 ## Contributing
 Pull requests are welcome. Feature improvements or addition of a new job is highly appreciated. For major changes in the existing feature, please open an issue first to discuss what you would like to change.
