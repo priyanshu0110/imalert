@@ -54,3 +54,18 @@ Where do I get the alert ?
 As of now, the only supported medium of alerting is
 `Slack <https://slack.com/intl/en-in/>`__. You need to have a Slack
 channel and an incoming webhook url for that.
+
+
+Design
+***********************
+.. toctree::
+   :maxdepth: 2
+
+   design
+
+Installation
+********************
+.. toctree::
+   :maxdepth: 1
+
+   installation
