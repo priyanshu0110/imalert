@@ -15,8 +15,8 @@ Let’s follow through the steps given below
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Create a VM or use the existing one if you already have. Make sure
-HTTP port (80) is exposed. **
-Note**: Commands have been written assuming you’re using an ubuntu OS.
+HTTP port (80) is exposed. 
+**Note**: Commands have been written assuming you’re using an ubuntu OS.
 If you’re on some other OS, update the commands accordingly.
 
 2. Login as superuser (root)
@@ -66,7 +66,7 @@ that. We’ll install the modules here
 
 9. Download the installable package of imAlert prepared by Yesfoss.
 Refer to `this
-link <https://www.yesfoss.org/imalert-installable-package/>`__ to know
+link <https://imalert.readthedocs.io/en/latest/installable-package.html>`__ to know
 details of this package. The package can either be downloaded using
 `this
 link <https://www.yesfoss.org/wp-content/uploads/2021/11/imalert-exec.zip>`__
@@ -104,7 +104,7 @@ imAlert <https://github.com/priyanshu0110/imalert>`__.
 
 13. Edit **imcontroller.properties** and **imworker.properties** and set
 the properties accordingly. Refer to `this
-link <https://www.yesfoss.org/imalert-properties/>`__ to see the
+link <https://imalert.readthedocs.io/en/latest/properties.html>`__ to see the
 explanation of properties. Also, you can edit **log4j2-controller.xml**
 and **log4j2-worker.xml** as per your environment.
 
