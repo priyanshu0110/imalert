@@ -24,7 +24,7 @@ the heart of this project. That component is a
 the center of these modules and acts as a communication medium for them.
 Let us understand it using the diagram below.
 
-.. figure:: https://github.com/priyanshu0110/imalert/tree/master/docs/images/design.png?raw=true
+.. figure:: https://raw.githubusercontent.com/priyanshu0110/imalert/master/docs/images/design.png
    :alt: alt text
 
    alt text
