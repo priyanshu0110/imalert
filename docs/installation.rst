@@ -133,11 +133,3 @@ different machines provided Central Redis is reachable to them. Also, N
 number of worker modules can be run to distribute the load as and when
 required. While starting a new worker, make sure to use the same
 consumer-group and a different consumer name.
-
-
-Configuration
-********************
-.. toctree::
-   :maxdepth: 2
-
-   properties

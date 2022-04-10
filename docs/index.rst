@@ -72,9 +72,16 @@ Design
 Installation
 ********************
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    installation
+
+Configuration
+********************
+.. toctree::
+   :maxdepth: 1
+
+   properties
 
 Jobs
 ********************
