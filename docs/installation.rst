@@ -138,6 +138,6 @@ consumer-group and a different consumer name.
 Configuration
 ********************
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    properties
