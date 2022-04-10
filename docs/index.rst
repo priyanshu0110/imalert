@@ -81,7 +81,7 @@ Configuration
 .. toctree::
    :maxdepth: 1
 
-   properties
+   configuration
 
 Jobs
 ********************

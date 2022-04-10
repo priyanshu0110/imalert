@@ -1,4 +1,4 @@
-Properties
+Configuration
 ----------
 
 imcontroller.properties
