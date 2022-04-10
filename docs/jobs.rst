@@ -1,5 +1,8 @@
 Jobs
 ********************
+
+As per the latest release, following monitoring jobs are supported.
+
 .. toctree::
    :maxdepth: 1
 
