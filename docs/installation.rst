@@ -125,7 +125,7 @@ have a service file with some failover strategy like
 And that’s all! You have successfully installed imAlert. You should now
 be able to use it through **http://<your-machine-ip>**
 
-.. figure:: https://github.com/priyanshu0110/imalert/tree/master/docs/images/ui.jpg?raw=true
+.. figure:: https://github.com/priyanshu0110/imalert/tree/master/docs/images/ui.png?raw=true
    :alt: ui
 
    ui
