@@ -25,9 +25,7 @@ the center of these modules and acts as a communication medium for them.
 Let us understand it using the diagram below.
 
 .. figure:: https://raw.githubusercontent.com/priyanshu0110/imalert/master/docs/images/design.png
-   :alt: alt text
-
-   alt text
+   :alt: design
 
 -  The user adds a new monitoring job through the UI
 -  imalert-ui module writes the job configuration and cron schedule to
@@ -40,7 +38,7 @@ Let us understand it using the diagram below.
    one of the worker threads. Note that the worker module uses the
    `ThreadpoolExecutor <https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html>`__
    and maintains a pool of threads. ``Number of core threads``,
-   ``maximum     number of threads`` and ``worker queue size`` of the
+   ``maximum number of threads`` and ``worker queue size`` of the
    threadpool can be configured through the module’s property.
 -  On execution of a job, the worker fetches the configuration of that
    particular job from the central-redis and runs the operation(s).

@@ -75,7 +75,6 @@ Installation
    :maxdepth: 1
 
    installation
-   properties
 
 Jobs
 ********************
@@ -89,4 +88,4 @@ Other
 .. toctree::
    :maxdepth: 1
 
-   installable-package
+   other

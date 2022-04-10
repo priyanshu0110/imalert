@@ -128,10 +128,16 @@ be able to use it through **http://<your-machine-ip>**
 .. figure:: https://raw.githubusercontent.com/priyanshu0110/imalert/master/docs/images/ui.png
    :alt: ui
 
-   ui
-
 **FYI:** All the components can be installed on the same or the
 different machines provided Central Redis is reachable to them. Also, N
 number of worker modules can be run to distribute the load as and when
 required. While starting a new worker, make sure to use the same
 consumer-group and a different consumer name.
+
+
+Configuration
+********************
+.. toctree::
+   :maxdepth: 1
+
+   properties
