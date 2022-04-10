@@ -60,7 +60,7 @@ Introduction
 .. toctree::
    :maxdepth: 1
 
-   index
+   introduction
 
 Design
 ***********************
