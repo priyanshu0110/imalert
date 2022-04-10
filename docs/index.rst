@@ -59,7 +59,7 @@ channel and an incoming webhook url for that.
 Design
 ***********************
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    design
 
@@ -69,3 +69,15 @@ Installation
    :maxdepth: 1
 
    installation
+
+Jobs
+********************
+.. toctree::
+   :maxdepth: 1
+
+   job-iwatchredis
+   job-iwatchelastic
+   job-remindme
+   job-checkmyhealth
+   job-isitreachable
+   job-whylatency
